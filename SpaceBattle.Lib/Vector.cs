@@ -1,112 +1,57 @@
 namespace SpaceBattle.Lib;
-
 public class Vector
 {
-    public int[] coord;
-    public int size;
-
-    public Vector(params int[] coord)
+    public int[] coordinates { get; set; } = { }; // нули закидывает
+    public int Size { get; }
+    public Vector(params int[] args)
     {
-        size = coord.Length;
-        this.coord = new int[size];
-        for (int i = 0; i < size; i++) this.coord[i] = coord[i];
+        coordinates = args;
+        Size = args.Length;
+    }
+
+    public override string ToString()
+    {
+        string s = $"({coordinates[0]}";
+        for (int i = 1; i < Size; i++)
+        {
+            s += $", {coordinates[i]}";
+        }
+        s += ")";
+        return s;
+    }
+    public int this[int index]
+    {
+        get { return coordinates[index]; }
+    }
+    public static Vector operator +(Vector v1, Vector v2)
+    {
+        if (v1.Size != v2.Size) throw new ArgumentException();
+        else
+        {
+            int[] coord = new int[v1.Size];
+
+            for (int i = 0; i < v1.Size; i++) coord[i] = v1[i] + v2[i];
+
+            return new Vector(coord);
+        }
+    }
+    public static bool operator ==(Vector v1, Vector v2)
+    {
+        if (v1.Size != v2.Size) return false;
+
+        for (int i = 0; i < v1.Size; i++) if (v1[i] != v2[i]) return false;
+
+        return true;
+    }
+    public static bool operator !=(Vector v1, Vector v2)
+    {
+        return !(v1 == v2);
     }
 
     public override bool Equals(object? obj) => obj is Vector;
 
-    public override int GetHashCode() => HashCode.Combine(coord);
-
-
-    public override string ToString()
+    public override int GetHashCode()
     {
-        string str = "[+] Vector (";
-
-        for (int i = 0; i < size - 1; i++)
-        {
-            str += coord[i] + ", ";
-        }
-
-        str += coord[size - 1] + ")";
-
-        return str;
+        return this.Size.GetHashCode();
     }
-
-    public int this[int index]
-    {
-        get => coord[index];
-        set => coord[index] = value;
-    }
-
-    public static Vector operator +(Vector x, Vector y)
-    {
-        if (x.size != y.size)
-        {
-            throw new System.ArgumentException();
-        }
-        else
-        {
-            int[] coord = new int[x.size];
-
-            for (int i = 0; i < x.size; i++)
-            {
-                coord[i] = x[i] + y[i];
-            }
-            return new Vector(coord);
-        }
-    }
-
-    public static Vector operator -(Vector x, Vector y)
-    {
-        if (x.size != y.size)
-        {
-            throw new System.ArgumentException();
-        }
-        else
-        {
-            int[] coord = new int[x.size];
-
-            for (int i = 0; i < x.size; i++)
-            {
-                coord[i] = x[i] - y[i];
-            }
-            return new Vector(coord);
-        }
-    }
-
-    public static Vector operator *(int n, Vector x)
-    {
-        int[] coord = new int[x.size];
-
-        for (int i = 0; i < x.size; i++)
-        {
-            coord[i] = n * x[i];
-        }
-        return new Vector(coord);
-    }
-
-    public static bool operator ==(Vector x, Vector y)
-    {
-        if (x.size != y.size)
-        {
-            return false;
-        }
-        for (int i = 0; i < x.size; i++)
-        {
-            if (x[i] != y[i])
-            {
-                return false;
-            }
-        }
-        return true;
-    }
-
-    public static bool operator !=(Vector x, Vector y)
-    {
-        if (x == y)
-        {
-            return false;
-        }
-        return true;
-    }
-
 }
