@@ -109,29 +109,4 @@ public class Vector
         return true;
     }
 
-    public static bool operator <(Vector x, Vector y)
-    {
-        if (x == y)
-        {
-            return false;
-        }
-
-        if (x.size > y.size)
-        {
-            return false;
-        }
-        for (int i = 0; i < x.size; i++)
-        {
-            if (x[i] > y[i])
-            {
-                return false;
-            }
-        }
-        return true;
-    }
-
-    public static bool operator >(Vector x, Vector y)
-    {
-        return y < x;
-    }
 }
