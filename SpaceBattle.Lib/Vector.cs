@@ -1,7 +1,7 @@
 namespace SpaceBattle.Lib;
 public class Vector
 {
-    public int[] coordinates { get; set; } = { }; // нули закидывает
+    public int[] coordinates { get; set; } = { };
     public int Size { get; }
     public Vector(params int[] args)
     {
