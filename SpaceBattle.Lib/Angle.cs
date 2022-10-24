@@ -45,7 +45,7 @@ class Angle
         if (a < b) swap(a, b);
         while (a != 0)
         {
-            a = a % b;
+            a %= b;
             swap(a, b);
         }
 
