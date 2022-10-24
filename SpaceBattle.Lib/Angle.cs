@@ -10,6 +10,11 @@ class Angle
         denominator = den;
     }
 
+    public override string ToString()
+    {
+        return $"{numerator / denominator}";
+    }
+
     public static Angle operator +(Angle a1, Angle a2)
     {
         int num = a1.numerator * a2.denominator + a2.numerator * a1.denominator;
@@ -64,8 +69,5 @@ class Angle
         return obj is Angle a && numerator == a.numerator && denominator == a.denominator;
     }
 
-    public override int GetHashCode()
-    {
-        throw new NotImplementedException();
-    }
+    public override int GetHashCode() => $"{numerator}{denominator}".GetHashCode();
 }
