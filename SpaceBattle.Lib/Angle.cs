@@ -59,19 +59,9 @@ class Angle
         b = a;
     }
 
-    public override bool Equals(object obj)
+    public override bool Equals(object? obj)
     {
-        if (ReferenceEquals(this, obj))
-        {
-            return true;
-        }
-
-        if (ReferenceEquals(obj, null))
-        {
-            return false;
-        }
-
-        throw new NotImplementedException();
+        return obj is Angle a && numerator == a.numerator && denominator == a.denominator;
     }
 
     public override int GetHashCode()
