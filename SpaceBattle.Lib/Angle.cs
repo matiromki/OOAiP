@@ -1,11 +1,14 @@
 namespace SpaceBattle.Lib;
 
-class Angle
+public class Angle
 {
     private int numerator;
     private int denominator;
     public Angle(int num, int den)
-    {
+    {   
+        if (den == 0){
+            throw new ArgumentNullException();
+        }
         numerator = num;
         denominator = den;
     }
@@ -43,27 +46,11 @@ class Angle
         return !(a1 == a2);
     }
 
-    private static int GSD(int num, int den)
+     private static int GSD(int u, int v)
     {
-        int a = num;
-        int b = den;
-        if (a < b) swap(a, b);
-        while (a != 0)
-        {
-            a %= b;
-            swap(a, b);
-        }
-
-        return a;
+        return Math.Abs(v) == 0 ? Math.Abs(u) : GSD(Math.Abs(v), Math.Abs(u) % Math.Abs(v));
     }
-    private static void swap(int a, int b)
-    {
-        int c;
-        c = a;
-        a = b;
-        b = a;
-    }
-
+    
     public override bool Equals(object? obj)
     {
         return obj is Angle a && numerator == a.numerator && denominator == a.denominator;
