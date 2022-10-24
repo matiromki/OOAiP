@@ -53,5 +53,11 @@ public class AngleTest{
         Assert.True(a1.GetHashCode() != a2.GetHashCode());
     }
 
+    [Fact]
+    public void AngleEqualsTestBad(){
+        var a1 = new Angle(30, 1);
+        int b = 2;
 
+        Assert.False(a1.Equals(b));
+    }
 }
