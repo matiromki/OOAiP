@@ -34,9 +34,7 @@ public class VectorTest
         var v1 = new Vector(1, 2);
         var v2 = new Vector(4, 5);
 
-        var v3 = v1 + v2;
-
-        Assert.Equal("(5, 7)", v3.ToString());
+        Assert.Equal(new Vector(5, 7), v1 + v2);
     }
 
     [Fact]
@@ -96,7 +94,7 @@ public class VectorTest
     }
 
     [Fact]
-    public void VectorHashCodeGood()
+    public void VectorHashCodeEqualTest()
     {
         var v1 = new Vector(1, 2, 3);
         var v2 = new Vector(1, 2, 3);
@@ -105,7 +103,7 @@ public class VectorTest
     }
 
     [Fact]
-    public void VectorHashCodeBad()
+    public void VectorHashCodeNotEqualTest()
     {
         var v1 = new Vector(1, 2, 3);
         var v2 = new Vector(1, 0, 1);
