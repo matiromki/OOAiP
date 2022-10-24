@@ -62,7 +62,8 @@ public class AngleTest
     }
 
     [Fact]
-    public void AngleEqualsTestBad(){
+    public void AngleEqualsTestBad()
+    {
         var a1 = new Angle(30, 1);
         int b = 2;
 
