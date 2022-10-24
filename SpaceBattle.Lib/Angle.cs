@@ -1,6 +1,6 @@
 namespace SpaceBattle.Lib;
 
-class Angle
+public class Angle
 {
     private int numerator;
     private int denominator;
@@ -47,8 +47,7 @@ class Angle
     {
         int a = num;
         int b = den;
-        if (a < b) swap(a, b);
-        while (a != 0)
+        while (b != 0)
         {
             a %= b;
             swap(a, b);
