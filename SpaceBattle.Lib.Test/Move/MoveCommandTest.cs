@@ -3,7 +3,7 @@ namespace SpaceBattle.Lib.Test;
 public class MoveCommandTest
 {
     [Fact]
-    public void ChangePositionTest()
+    public void ChangePositionTestPositive()
     {
         var movable = new Mock<IMoveable>();
         movable.SetupProperty(m => m.position, new Vector(12, 5));
@@ -12,11 +12,11 @@ public class MoveCommandTest
         var move = new MoveCommand(movable.Object);
         move.Execute();
 
-        movable.VerifySet(m => m.position = new Vector(5, 8));
+        Assert.Equal(new Vector(12, 5), movable.Object.position);
     }
 
     [Fact]
-    public void UnreadablePositionTest()
+    public void UnreadablePositionTestNegative()
     {
         var movable = new Mock<IMoveable>();
         movable.SetupGet(m => m.position).Throws<Exception>();
@@ -28,7 +28,7 @@ public class MoveCommandTest
     }
 
     [Fact]
-    public void UnreadableVelocityTest()
+    public void UnreadableVelocityTestNegative()
     {
         var movable = new Mock<IMoveable>();
         movable.SetupProperty(m => m.position, new Vector(12, 5));
@@ -40,7 +40,7 @@ public class MoveCommandTest
     }
 
     [Fact]
-    public void UnchangeablePositionTest()
+    public void UnchangeablePositionTestNegative()
     {
         var movable = new Mock<IMoveable>();
         movable.SetupProperty(m => m.position, new Vector(12, 5));
@@ -51,4 +51,5 @@ public class MoveCommandTest
 
         Assert.Throws<Exception>(() => move.Execute());
     }
+
 }
