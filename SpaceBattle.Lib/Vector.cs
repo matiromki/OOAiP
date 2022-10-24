@@ -1,8 +1,8 @@
 namespace SpaceBattle.Lib;
 public class Vector
 {
-    public int[] coordinates { get; set; } = { }; // нули закидывает
-    public int Size { get; }
+    public int[] coordinates;
+    public int Size;
     public Vector(params int[] args)
     {
         coordinates = args;
@@ -11,21 +11,19 @@ public class Vector
 
     public override string ToString()
     {
-        string s = $"({coordinates[0]}";
-        for (int i = 1; i < Size; i++)
-        {
-            s += $", {coordinates[i]}";
-        }
-        s += ")";
-        return s;
+        return $"({String.Join(", ", coordinates)})";
     }
     public int this[int index]
     {
-        get { return coordinates[index]; }
+        get => coordinates[index];
+        set => coordinates[index] = value;
     }
     public static Vector operator +(Vector v1, Vector v2)
     {
-        if (v1.Size != v2.Size) throw new ArgumentException();
+        if (v1.Size != v2.Size)
+        {
+            throw new ArgumentException();
+        }
         else
         {
             int[] coord = new int[v1.Size];
@@ -39,7 +37,10 @@ public class Vector
     {
         if (v1.Size != v2.Size) return false;
 
-        for (int i = 0; i < v1.Size; i++) if (v1[i] != v2[i]) return false;
+        for (int i = 0; i < v1.Size; i++)
+        {
+            if (v1[i] != v2[i]) return false;
+        }
 
         return true;
     }
@@ -50,8 +51,6 @@ public class Vector
 
     public override bool Equals(object? obj) => obj is Vector;
 
-    public override int GetHashCode()
-    {
-        return this.Size.GetHashCode();
-    }
+    public override int GetHashCode() => String.Join("", coordinates.Select(x => x.ToString())).GetHashCode();
+
 }

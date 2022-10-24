@@ -2,7 +2,7 @@ name: .NET
 
 on:
   push:
-    branches: [ "develop" ]
+    branches: [ "main", "develop2" ]
   pull_request:
     branches: [ "main" ]
 
@@ -10,19 +10,18 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        dotnet-version: ['6.x' ]
 
     steps:
       - uses: actions/checkout@v3
       - name: Setup .NET Core SDK ${{ matrix.dotnet-version }}
-        uses: actions/setup-dotnet@v3
+        uses: actions/setup-dotnet@v2
         with:
-          dotnet-version: ${{ matrix.dotnet-version }}
+          dotnet-version: 6.0.x
       - name: Install dependencies
-        run: dotnet restore
+        run: dotnet restore ./SpaceBattle.Lib
       - name: Build
-        run: dotnet build --configuration Release --no-restore
+        run: dotnet build ./SpaceBattle.Lib --configuration Release --no-restore
       - name: Test
-        run: dotnet test --no-restore --verbosity normal
+        run: dotnet test -p:CollectCoverage=true -p:CoverletOutput=../coverage/ -p:CoverletOutputFormat=opencover --no-build --verbosity d ./SpaceBattle.Lib.Test
+      - name: Codecov
+        uses: codecov/codecov-action@v3
