@@ -22,6 +22,9 @@ jobs:
       - name: Build
         run: dotnet build ./SpaceBattle.Lib --configuration Release --no-restore
       - name: Test
-        run: dotnet test -p:CollectCoverage=true 
-      - name: Codecov
-        uses: codecov/codecov-action@v3
+        run: dotnet test --no-build --verbosity normal /p:CollectCoverage=true /p:CoverletOutput=TestResults/ /p:CoverletOutputFormat=lcov
+      - name: Publish coverage report to coveralls.io   
+        uses: coverallsapp/github-action@master   
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          path-to-lcov: Game.Lib.Test/TestResults/coverage.info
