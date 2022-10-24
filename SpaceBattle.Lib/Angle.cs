@@ -5,8 +5,9 @@ public class Angle
     private int numerator;
     private int denominator;
     public Angle(int num, int den)
-    {   
-        if (den == 0){
+    {
+        if (den == 0)
+        {
             throw new ArgumentNullException();
         }
         numerator = num;
@@ -46,11 +47,11 @@ public class Angle
         return !(a1 == a2);
     }
 
-     private static int GSD(int u, int v)
+    private static int GSD(int u, int v)
     {
         return Math.Abs(v) == 0 ? Math.Abs(u) : GSD(Math.Abs(v), Math.Abs(u) % Math.Abs(v));
     }
-    
+
     public override bool Equals(object? obj)
     {
         return obj is Angle a && numerator == a.numerator && denominator == a.denominator;

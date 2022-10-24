@@ -1,20 +1,24 @@
 namespace SpaceBattle.Lib.Test;
 
-public class AngleTest{
+public class AngleTest
+{
     [Fact]
-    public void PrintAngleTest(){
+    public void PrintAngleTest()
+    {
         var a = new Angle(30, 1);
 
         Assert.Equal("30", a.ToString());
     }
 
     [Fact]
-    public void AngleZeroExceptionTestNegative(){
+    public void AngleZeroExceptionTestNegative()
+    {
         Assert.Throws<ArgumentNullException>(() => new Angle(45, 0));
     }
 
     [Fact]
-    public void AngleOperationAddTest(){
+    public void AngleOperationAddTest()
+    {
         var a1 = new Angle(30, 1);
         var a2 = new Angle(90, 1);
 
@@ -22,7 +26,8 @@ public class AngleTest{
     }
 
     [Fact]
-    public void AngleEqualTest(){
+    public void AngleEqualTest()
+    {
         var a1 = new Angle(30, 1);
         var a2 = new Angle(60, 2);
 
@@ -30,7 +35,8 @@ public class AngleTest{
     }
 
     [Fact]
-    public void AngleNotEqualTest(){
+    public void AngleNotEqualTest()
+    {
         var a1 = new Angle(30, 1);
         var a2 = new Angle(90, 2);
 
@@ -38,7 +44,8 @@ public class AngleTest{
     }
 
     [Fact]
-    public void AngleHashCodeEqualTest(){
+    public void AngleHashCodeEqualTest()
+    {
         var a1 = new Angle(30, 1);
         var a2 = new Angle(30, 1);
 
@@ -46,7 +53,8 @@ public class AngleTest{
     }
 
     [Fact]
-    public void AngleHashCodeNotEqualTest(){
+    public void AngleHashCodeNotEqualTest()
+    {
         var a1 = new Angle(30, 1);
         var a2 = new Angle(60, 1);
 
