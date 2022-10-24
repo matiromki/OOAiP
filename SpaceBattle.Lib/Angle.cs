@@ -47,9 +47,9 @@ public class Angle
         return !(a1 == a2);
     }
 
-    private static int GSD(int u, int v)
+    private static int GSD(int num, int den)
     {
-        return Math.Abs(v) == 0 ? Math.Abs(u) : GSD(Math.Abs(v), Math.Abs(u) % Math.Abs(v));
+        return Math.Abs(den) == 0 ? Math.Abs(num) : GSD(Math.Abs(den), Math.Abs(num) % Math.Abs(den));
     }
 
     public override bool Equals(object? obj)
