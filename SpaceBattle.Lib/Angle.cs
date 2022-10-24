@@ -51,7 +51,7 @@ public class Angle
     {
         return Math.Abs(den) == 0 ? Math.Abs(num) : GSD(Math.Abs(den), Math.Abs(num) % Math.Abs(den));
     }
-    
+
     public override bool Equals(object? obj)
     {
         return obj is Angle a && numerator == a.numerator && denominator == a.denominator;
