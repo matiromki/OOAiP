@@ -32,13 +32,9 @@ public class Angle
     {
         int NOD1 = GCD(a1.numerator, a1.denominator);
         int NOD2 = GCD(a2.numerator, a2.denominator);
-        if ((a1.numerator / NOD1 == a2.numerator / NOD2) &&
-        (a1.denominator / NOD1 == a2.denominator / NOD2))
-        {
-            return true;
-        }
 
-        return false;
+        return ((a1.numerator / NOD1 == a2.numerator / NOD2) &&
+        (a1.denominator / NOD1 == a2.denominator / NOD2));
 
     }
 
@@ -47,7 +43,7 @@ public class Angle
         return !(a1 == a2);
     }
 
-     private static int GCD(int num, int den)
+    private static int GCD(int num, int den)
     {
         return Math.Abs(den) == 0 ? Math.Abs(num) : GCD(Math.Abs(den), Math.Abs(num) % Math.Abs(den));
     }
@@ -57,5 +53,5 @@ public class Angle
         return obj is Angle a && numerator == a.numerator && denominator == a.denominator;
     }
 
-    public override int GetHashCode() => $"{numerator}{denominator}".GetHashCode();
+    public override int GetHashCode() => $"{numerator}/{denominator}".GetHashCode();
 }
