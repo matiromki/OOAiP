@@ -13,7 +13,7 @@ public class AngleTest
     [Fact]
     public void AngleZeroExceptionTestNegative()
     {
-        Assert.Throws<ArgumentNullException>(() => new Angle(45, 0));
+        Assert.Throws<Exception>(() => new Angle(45, 0));
     }
 
     [Fact]
