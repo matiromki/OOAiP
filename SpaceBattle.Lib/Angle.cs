@@ -38,20 +38,14 @@ public class Angle
 
     }
 
-    public static bool operator !=(Angle a1, Angle a2)
-    {
-        return !(a1 == a2);
-    }
+    public static bool operator !=(Angle a1, Angle a2) => !(a1 == a2);
 
     private static int GCD(int num, int den)
     {
         return Math.Abs(den) == 0 ? Math.Abs(num) : GCD(Math.Abs(den), Math.Abs(num) % Math.Abs(den));
     }
 
-    public override bool Equals(object? obj)
-    {
-        return obj is Angle a && numerator == a.numerator && denominator == a.denominator;
-    }
+    public override bool Equals(object? obj) => obj is Angle;
 
     public override int GetHashCode() => $"{numerator}/{denominator}".GetHashCode();
 }
