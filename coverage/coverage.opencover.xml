@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <CoverageSession>
-  <Summary numSequencePoints="82" visitedSequencePoints="82" numBranchPoints="22" visitedBranchPoints="22" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="37" minCyclomaticComplexity="37" visitedClasses="4" numClasses="4" visitedMethods="21" numMethods="21" />
+  <Summary numSequencePoints="75" visitedSequencePoints="75" numBranchPoints="16" visitedBranchPoints="16" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="32" minCyclomaticComplexity="32" visitedClasses="4" numClasses="4" visitedMethods="21" numMethods="21" />
   <Modules>
-    <Module hash="3FEA27E3-F886-413A-A2E7-8BA6983E49E6">
+    <Module hash="05BF2A0D-4B9D-47F5-81C0-F4FB107A6B6A">
       <ModulePath>SpaceBattle.Lib.dll</ModulePath>
-      <ModuleTime>2022-10-26T12:59:35</ModuleTime>
+      <ModuleTime>2022-11-01T12:51:55</ModuleTime>
       <ModuleName>SpaceBattle.Lib</ModuleName>
       <Files>
         <File uid="1" fullPath="E:\Универ\2 курс\ООАиП\SpaceBattle.Lib\Angle.cs" />
@@ -14,7 +14,7 @@
       </Files>
       <Classes>
         <Class>
-          <Summary numSequencePoints="36" visitedSequencePoints="36" numBranchPoints="12" visitedBranchPoints="12" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="4" minCyclomaticComplexity="1" visitedClasses="1" numClasses="1" visitedMethods="8" numMethods="8" />
+          <Summary numSequencePoints="29" visitedSequencePoints="29" numBranchPoints="6" visitedBranchPoints="6" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="2" minCyclomaticComplexity="1" visitedClasses="1" numClasses="1" visitedMethods="8" numMethods="8" />
           <FullName>SpaceBattle.Lib.Angle</FullName>
           <Methods>
             <Method cyclomaticComplexity="1" nPathComplexity="1" sequenceCoverage="100" branchCoverage="100" isConstructor="False" isGetter="False" isSetter="False" isStatic="True">
@@ -46,8 +46,8 @@
               <BranchPoints />
               <MethodPoint vc="6" uspid="0" p8:type="SequencePoint" ordinal="1" offset="1" sc="0" sl="23" ec="1" el="29" bec="0" bev="0" fileid="1" xmlns:p8="xsi" />
             </Method>
-            <Method cyclomaticComplexity="4" nPathComplexity="4" sequenceCoverage="100" branchCoverage="100" isConstructor="False" isGetter="False" isSetter="False" isStatic="True">
-              <Summary numSequencePoints="9" visitedSequencePoints="9" numBranchPoints="4" visitedBranchPoints="4" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="4" minCyclomaticComplexity="4" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" />
+            <Method cyclomaticComplexity="2" nPathComplexity="2" sequenceCoverage="100" branchCoverage="100" isConstructor="False" isGetter="False" isSetter="False" isStatic="True">
+              <Summary numSequencePoints="6" visitedSequencePoints="6" numBranchPoints="2" visitedBranchPoints="2" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="2" minCyclomaticComplexity="2" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" />
               <MetadataToken />
               <Name>System.Boolean SpaceBattle.Lib.Angle::op_Equality(SpaceBattle.Lib.Angle,SpaceBattle.Lib.Angle)</Name>
               <FileRef uid="1" />
@@ -55,67 +55,53 @@
                 <SequencePoint vc="2" uspid="32" ordinal="0" sl="32" sc="1" el="32" ec="2" bec="0" bev="0" fileid="1" />
                 <SequencePoint vc="2" uspid="33" ordinal="1" sl="33" sc="1" el="33" ec="2" bec="0" bev="0" fileid="1" />
                 <SequencePoint vc="2" uspid="34" ordinal="2" sl="34" sc="1" el="34" ec="2" bec="0" bev="0" fileid="1" />
-                <SequencePoint vc="2" uspid="35" ordinal="3" sl="35" sc="1" el="35" ec="2" bec="4" bev="4" fileid="1" />
-                <SequencePoint vc="2" uspid="36" ordinal="4" sl="36" sc="1" el="36" ec="2" bec="0" bev="0" fileid="1" />
-                <SequencePoint vc="1" uspid="37" ordinal="5" sl="37" sc="1" el="37" ec="2" bec="0" bev="0" fileid="1" />
-                <SequencePoint vc="1" uspid="38" ordinal="6" sl="38" sc="1" el="38" ec="2" bec="0" bev="0" fileid="1" />
-                <SequencePoint vc="1" uspid="41" ordinal="7" sl="41" sc="1" el="41" ec="2" bec="0" bev="0" fileid="1" />
-                <SequencePoint vc="2" uspid="43" ordinal="8" sl="43" sc="1" el="43" ec="2" bec="0" bev="0" fileid="1" />
+                <SequencePoint vc="2" uspid="36" ordinal="3" sl="36" sc="1" el="36" ec="2" bec="2" bev="2" fileid="1" />
+                <SequencePoint vc="2" uspid="37" ordinal="4" sl="37" sc="1" el="37" ec="2" bec="0" bev="0" fileid="1" />
+                <SequencePoint vc="2" uspid="39" ordinal="5" sl="39" sc="1" el="39" ec="2" bec="0" bev="0" fileid="1" />
               </SequencePoints>
               <BranchPoints>
-                <BranchPoint vc="1" uspid="35" ordinal="0" path="0" offset="53" offsetend="55" sl="35" fileid="1" />
-                <BranchPoint vc="1" uspid="35" ordinal="1" path="1" offset="53" offsetend="75" sl="35" fileid="1" />
-                <BranchPoint vc="1" uspid="35" ordinal="2" path="0" offset="78" offsetend="80" sl="35" fileid="1" />
-                <BranchPoint vc="1" uspid="35" ordinal="3" path="1" offset="78" offsetend="85" sl="35" fileid="1" />
+                <BranchPoint vc="1" uspid="36" ordinal="0" path="0" offset="53" offsetend="55" sl="36" fileid="1" />
+                <BranchPoint vc="1" uspid="36" ordinal="1" path="1" offset="53" offsetend="75" sl="36" fileid="1" />
               </BranchPoints>
-              <MethodPoint vc="9" uspid="0" p8:type="SequencePoint" ordinal="2" offset="2" sc="0" sl="32" ec="1" el="43" bec="0" bev="0" fileid="1" xmlns:p8="xsi" />
+              <MethodPoint vc="6" uspid="0" p8:type="SequencePoint" ordinal="2" offset="2" sc="0" sl="32" ec="1" el="39" bec="0" bev="0" fileid="1" xmlns:p8="xsi" />
             </Method>
             <Method cyclomaticComplexity="1" nPathComplexity="1" sequenceCoverage="100" branchCoverage="100" isConstructor="False" isGetter="False" isSetter="False" isStatic="True">
-              <Summary numSequencePoints="3" visitedSequencePoints="3" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" />
+              <Summary numSequencePoints="1" visitedSequencePoints="1" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" />
               <MetadataToken />
               <Name>System.Boolean SpaceBattle.Lib.Angle::op_Inequality(SpaceBattle.Lib.Angle,SpaceBattle.Lib.Angle)</Name>
               <FileRef uid="1" />
               <SequencePoints>
-                <SequencePoint vc="1" uspid="46" ordinal="0" sl="46" sc="1" el="46" ec="2" bec="0" bev="0" fileid="1" />
-                <SequencePoint vc="1" uspid="47" ordinal="1" sl="47" sc="1" el="47" ec="2" bec="0" bev="0" fileid="1" />
-                <SequencePoint vc="1" uspid="48" ordinal="2" sl="48" sc="1" el="48" ec="2" bec="0" bev="0" fileid="1" />
+                <SequencePoint vc="1" uspid="41" ordinal="0" sl="41" sc="1" el="41" ec="2" bec="0" bev="0" fileid="1" />
               </SequencePoints>
               <BranchPoints />
-              <MethodPoint vc="3" uspid="0" p8:type="SequencePoint" ordinal="3" offset="3" sc="0" sl="46" ec="1" el="48" bec="0" bev="0" fileid="1" xmlns:p8="xsi" />
+              <MethodPoint vc="1" uspid="0" p8:type="SequencePoint" ordinal="3" offset="3" sc="0" sl="41" ec="1" el="41" bec="0" bev="0" fileid="1" xmlns:p8="xsi" />
             </Method>
             <Method cyclomaticComplexity="2" nPathComplexity="2" sequenceCoverage="100" branchCoverage="100" isConstructor="False" isGetter="False" isSetter="False" isStatic="True">
               <Summary numSequencePoints="3" visitedSequencePoints="3" numBranchPoints="2" visitedBranchPoints="2" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="2" minCyclomaticComplexity="2" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" />
               <MetadataToken />
-              <Name>System.Int32 SpaceBattle.Lib.Angle::GSD(System.Int32,System.Int32)</Name>
+              <Name>System.Int32 SpaceBattle.Lib.Angle::GCD(System.Int32,System.Int32)</Name>
               <FileRef uid="1" />
               <SequencePoints>
-                <SequencePoint vc="14" uspid="51" ordinal="0" sl="51" sc="1" el="51" ec="2" bec="0" bev="0" fileid="1" />
-                <SequencePoint vc="14" uspid="52" ordinal="1" sl="52" sc="1" el="52" ec="2" bec="2" bev="2" fileid="1" />
-                <SequencePoint vc="14" uspid="53" ordinal="2" sl="53" sc="1" el="53" ec="2" bec="0" bev="0" fileid="1" />
+                <SequencePoint vc="14" uspid="44" ordinal="0" sl="44" sc="1" el="44" ec="2" bec="0" bev="0" fileid="1" />
+                <SequencePoint vc="14" uspid="45" ordinal="1" sl="45" sc="1" el="45" ec="2" bec="2" bev="2" fileid="1" />
+                <SequencePoint vc="14" uspid="46" ordinal="2" sl="46" sc="1" el="46" ec="2" bec="0" bev="0" fileid="1" />
               </SequencePoints>
               <BranchPoints>
-                <BranchPoint vc="7" uspid="52" ordinal="0" path="0" offset="7" offsetend="9" sl="52" fileid="1" />
-                <BranchPoint vc="7" uspid="52" ordinal="1" path="1" offset="7" offsetend="35" sl="52" fileid="1" />
+                <BranchPoint vc="7" uspid="45" ordinal="0" path="0" offset="7" offsetend="9" sl="45" fileid="1" />
+                <BranchPoint vc="7" uspid="45" ordinal="1" path="1" offset="7" offsetend="35" sl="45" fileid="1" />
               </BranchPoints>
-              <MethodPoint vc="3" uspid="0" p8:type="SequencePoint" ordinal="4" offset="4" sc="0" sl="51" ec="1" el="53" bec="0" bev="0" fileid="1" xmlns:p8="xsi" />
+              <MethodPoint vc="3" uspid="0" p8:type="SequencePoint" ordinal="4" offset="4" sc="0" sl="44" ec="1" el="46" bec="0" bev="0" fileid="1" xmlns:p8="xsi" />
             </Method>
-            <Method cyclomaticComplexity="4" nPathComplexity="4" sequenceCoverage="100" branchCoverage="100" isConstructor="False" isGetter="False" isSetter="False" isStatic="True">
-              <Summary numSequencePoints="3" visitedSequencePoints="3" numBranchPoints="4" visitedBranchPoints="4" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="4" minCyclomaticComplexity="4" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" />
+            <Method cyclomaticComplexity="1" nPathComplexity="1" sequenceCoverage="100" branchCoverage="100" isConstructor="False" isGetter="False" isSetter="False" isStatic="True">
+              <Summary numSequencePoints="1" visitedSequencePoints="1" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" />
               <MetadataToken />
               <Name>System.Boolean SpaceBattle.Lib.Angle::Equals(System.Object)</Name>
               <FileRef uid="1" />
               <SequencePoints>
-                <SequencePoint vc="3" uspid="56" ordinal="0" sl="56" sc="1" el="56" ec="2" bec="0" bev="0" fileid="1" />
-                <SequencePoint vc="3" uspid="57" ordinal="1" sl="57" sc="1" el="57" ec="2" bec="4" bev="4" fileid="1" />
-                <SequencePoint vc="3" uspid="58" ordinal="2" sl="58" sc="1" el="58" ec="2" bec="0" bev="0" fileid="1" />
+                <SequencePoint vc="3" uspid="48" ordinal="0" sl="48" sc="1" el="48" ec="2" bec="0" bev="0" fileid="1" />
               </SequencePoints>
-              <BranchPoints>
-                <BranchPoint vc="2" uspid="57" ordinal="0" path="0" offset="9" offsetend="11" sl="57" fileid="1" />
-                <BranchPoint vc="2" uspid="57" ordinal="2" path="0" offset="23" offsetend="25" sl="57" fileid="1" />
-                <BranchPoint vc="1" uspid="57" ordinal="1" path="1" offset="9" offsetend="41" sl="57" fileid="1" />
-                <BranchPoint vc="1" uspid="57" ordinal="3" path="1" offset="23" offsetend="41" sl="57" fileid="1" />
-              </BranchPoints>
-              <MethodPoint vc="3" uspid="0" p8:type="SequencePoint" ordinal="5" offset="5" sc="0" sl="56" ec="1" el="58" bec="0" bev="0" fileid="1" xmlns:p8="xsi" />
+              <BranchPoints />
+              <MethodPoint vc="1" uspid="0" p8:type="SequencePoint" ordinal="5" offset="5" sc="0" sl="48" ec="1" el="48" bec="0" bev="0" fileid="1" xmlns:p8="xsi" />
             </Method>
             <Method cyclomaticComplexity="1" nPathComplexity="1" sequenceCoverage="100" branchCoverage="100" isConstructor="False" isGetter="False" isSetter="False" isStatic="True">
               <Summary numSequencePoints="1" visitedSequencePoints="1" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" />
@@ -123,10 +109,10 @@
               <Name>System.Int32 SpaceBattle.Lib.Angle::GetHashCode()</Name>
               <FileRef uid="1" />
               <SequencePoints>
-                <SequencePoint vc="4" uspid="60" ordinal="0" sl="60" sc="1" el="60" ec="2" bec="0" bev="0" fileid="1" />
+                <SequencePoint vc="4" uspid="50" ordinal="0" sl="50" sc="1" el="50" ec="2" bec="0" bev="0" fileid="1" />
               </SequencePoints>
               <BranchPoints />
-              <MethodPoint vc="1" uspid="0" p8:type="SequencePoint" ordinal="6" offset="6" sc="0" sl="60" ec="1" el="60" bec="0" bev="0" fileid="1" xmlns:p8="xsi" />
+              <MethodPoint vc="1" uspid="0" p8:type="SequencePoint" ordinal="6" offset="6" sc="0" sl="50" ec="1" el="50" bec="0" bev="0" fileid="1" xmlns:p8="xsi" />
             </Method>
             <Method cyclomaticComplexity="2" nPathComplexity="2" sequenceCoverage="100" branchCoverage="100" isConstructor="True" isGetter="False" isSetter="False" isStatic="True">
               <Summary numSequencePoints="8" visitedSequencePoints="8" numBranchPoints="2" visitedBranchPoints="2" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="2" minCyclomaticComplexity="2" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" />
