@@ -1,2 +1,1 @@
-# OOAiP
-https://docs.google.com/document/d/1MHQU8duvvpd4Mp80ljfa-f0qFqmjjxo7jF0X1xskgko/edit
+[![codecov](https://codecov.io/gh/matiromki/OOAiP/branch/move/graph/badge.svg?token=H4FFY3C0QC)](https://codecov.io/gh/matiromki/OOAiP)
