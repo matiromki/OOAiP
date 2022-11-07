@@ -30,12 +30,7 @@ public class Angle
 
     public static bool operator ==(Angle a1, Angle a2)
     {
-        int NOD1 = GCD(a1.numerator, a1.denominator);
-        int NOD2 = GCD(a2.numerator, a2.denominator);
-
-        return ((a1.numerator / NOD1 == a2.numerator / NOD2) &&
-        (a1.denominator / NOD1 == a2.denominator / NOD2));
-
+        return a1.Equals(a2);
     }
 
     public static bool operator !=(Angle a1, Angle a2) => !(a1 == a2);
@@ -45,7 +40,7 @@ public class Angle
         return Math.Abs(den) == 0 ? Math.Abs(num) : GCD(Math.Abs(den), Math.Abs(num) % Math.Abs(den));
     }
 
-    public override bool Equals(object? obj) => obj is Angle;
+    public override bool Equals(object? obj) => obj is Angle a && numerator == a.numerator && denominator == a.denominator;
 
     public override int GetHashCode() => $"{numerator}/{denominator}".GetHashCode();
 }
