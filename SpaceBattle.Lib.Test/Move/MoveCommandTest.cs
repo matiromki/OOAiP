@@ -12,7 +12,7 @@ public class MoveCommandTest
         var move = new MoveCommand(movable.Object);
         move.Execute();
 
-        Assert.Equal(new Vector(12, 5), movable.Object.position);
+        Assert.Equal(new Vector(5, 8), movable.Object.position);
     }
 
     [Fact]
