@@ -58,15 +58,6 @@ public class VectorTest
     }
 
     [Fact]
-    public void NegativeVectorEqualsTest()
-    {
-        var v1 = new Vector(1, 2);
-        var v2 = new Vector(4, 5);
-
-        Assert.False(v1 == v2);
-    }
-
-    [Fact]
     public void PositiveVectorNotEqualsTest()
     {
         var v1 = new Vector(1, 2);
@@ -76,21 +67,12 @@ public class VectorTest
     }
 
     [Fact]
-    public void NegativeVectorNotEqualsTest1()
+    public void AngleEqualsTestBad()
     {
-        var v1 = new Vector(1, 2);
-        var v2 = new Vector(1, 2);
+        var a1 = new Vector(30, 1);
+        int b = 2;
 
-        Assert.False(v1 != v2);
-    }
-
-    [Fact]
-    public void NegativeVectorNotEqualsTest2()
-    {
-        var v1 = new Vector(1, 2, 3);
-        var v2 = new Vector(1, 2);
-
-        Assert.True(v1 != v2);
+        Assert.False(a1.Equals(b));
     }
 
     [Fact]
