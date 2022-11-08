@@ -26,6 +26,6 @@ jobs:
       - name: Codecov
         uses: codecov/codecov-action@v3
         with:
-        token: a4744ab2-4036-4c19-8dac-336db8647807
-        file: /home/runner/work/OOAiP/OOAiP/coverage/coverage.opencover.xml
-        verbose: true
+          token: a4744ab2-4036-4c19-8dac-336db8647807
+          file: /home/runner/work/OOAiP/OOAiP/coverage/coverage.opencover.xml
+          verbose: true
