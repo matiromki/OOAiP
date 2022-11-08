@@ -49,7 +49,7 @@ public class Vector
         return !(v1 == v2);
     }
 
-    public override bool Equals(object? obj) => obj is Vector;
+    public override bool Equals(object? obj) => obj is Vector a;
 
     public override int GetHashCode() => String.Join("", coordinates.Select(x => x.ToString())).GetHashCode();
 
