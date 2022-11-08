@@ -23,5 +23,5 @@ jobs:
         uses: codecov/codecov-action@v3
         with:
           token: a4744ab2-4036-4c19-8dac-336db8647807
-          file: -f ../coverage/coverage.opencover.xml
+          file: -r ../coverage/coverage.opencover.xml
           verbose: true
