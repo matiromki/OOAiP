@@ -35,21 +35,30 @@ public class Vector
     }
     public static bool operator ==(Vector v1, Vector v2)
     {
-        if (v1.Size != v2.Size) return false;
-
-        for (int i = 0; i < v1.Size; i++)
-        {
-            if (v1[i] != v2[i]) return false;
-        }
-
-        return true;
+        return v1.Equals(v2);
     }
     public static bool operator !=(Vector v1, Vector v2)
     {
         return !(v1 == v2);
     }
 
-    public override bool Equals(object? obj) => obj is Vector a;
+    public override bool Equals(object? obj)
+    {
+        if ((obj == null) || !this.GetType().Equals(obj.GetType()))
+        {
+            return false;
+        }
+
+        Vector v = (Vector)obj;
+
+        if (Size != v.Size) return false;
+
+        for (int i = 0; i < Size; i++)
+        {
+            if (coordinates[i] != v[i]) return false;
+        }
+        return true;
+    }
 
     public override int GetHashCode() => String.Join("", coordinates.Select(x => x.ToString())).GetHashCode();
 
