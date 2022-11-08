@@ -42,23 +42,7 @@ public class Vector
         return !(v1 == v2);
     }
 
-    public override bool Equals(object? obj)
-    {
-        if ((obj == null) || !this.GetType().Equals(obj.GetType()))
-        {
-            return false;
-        }
-
-        Vector v = (Vector)obj;
-
-        if (Size != v.Size) return false;
-
-        for (int i = 0; i < Size; i++)
-        {
-            if (coordinates[i] != v[i]) return false;
-        }
-        return true;
-    }
+    public override bool Equals(object? obj) => obj is Vector v && coordinates.SequenceEqual(v.coordinates);
 
     public override int GetHashCode() => String.Join("", coordinates.Select(x => x.ToString())).GetHashCode();
 
