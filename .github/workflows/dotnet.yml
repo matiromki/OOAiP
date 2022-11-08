@@ -7,11 +7,6 @@ on:
     branches: [ "main" ]
 
 jobs:
-  before_build:
-    - nuget restore
-    - choco install opencover.portable
-    - choco install codecov
-
   build:
 
     runs-on: ubuntu-latest
@@ -30,6 +25,3 @@ jobs:
         run: dotnet test -p:CollectCoverage=true -p:CoverletOutput=../coverage/ -p:CoverletOutputFormat=opencover --no-build --verbosity d ./SpaceBattle.Lib.Test
       - name: Codecov
         uses: codecov/codecov-action@v3
-  test_script:
-    - OpenCover.Console.exe -register:user -target:"%xunit20%\xunit.console.x86.exe" -targetargs:".\MyUnitTests\bin\Debug\MyUnitTests.dll -noshadow" -filter:"+[UnitTestTargetProject*]* -[MyUnitTests*]*" -output:".\MyProject_coverage.xml"
-    - codecov -f "MyProject_coverage.xml
