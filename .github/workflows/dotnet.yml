@@ -26,5 +26,4 @@ jobs:
       - name: Codecov
         uses: "codecov/codecov-action@v3"
         with:
-          gcov: true
-          gcov_include: coverage.opencover.xml
+          file: coverage.opencover.xml
