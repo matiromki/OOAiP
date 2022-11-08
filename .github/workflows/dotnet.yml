@@ -23,7 +23,7 @@ jobs:
         run: dotnet build ./SpaceBattle.Lib --configuration Release --no-restore
       - name: Test
         run: dotnet test -p:CollectCoverage=true -p:CoverletOutput=../TestResults/ -p:CoverletOutputFormat=opencover --no-build --verbosity d 
-      - name: Download artifacts
-        uses: actions/download-artifact@v2
-      - name: Upload to Codecov
-        uses: codecov/codecov-action@v2
+      - name: Codecov
+        uses: "codecov/codecov-action@v3"
+        with:
+          file: ./coverage.opencover.xml
