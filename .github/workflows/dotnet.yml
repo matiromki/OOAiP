@@ -25,4 +25,3 @@ jobs:
         run: dotnet test -p:CollectCoverage=true -p:CoverletOutput=../coverage/ -p:CoverletOutputFormat=opencover --no-build --verbosity d ./SpaceBattle.Lib.Test
       - name: Codecov
         uses: codecov/codecov-action@v3
-        file: ./coverage/coverage.opencover.xml
