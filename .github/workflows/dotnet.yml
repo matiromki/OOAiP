@@ -25,7 +25,7 @@ jobs:
         run: dotnet test -p:CollectCoverage=true -p:CoverletOutput=../coverage/ -p:CoverletOutputFormat=opencover --no-build --verbosity d ./SpaceBattle.Lib.Test
       - name: Codecov
         uses: codecov/codecov-action@v3
-          with:
-          token: a4744ab2-4036-4c19-8dac-336db8647807
-          file: /home/runner/work/OOAiP/OOAiP/coverage/coverage.opencover.xml
-          verbose: true
+        with:
+        token: a4744ab2-4036-4c19-8dac-336db8647807
+        file: /home/runner/work/OOAiP/OOAiP/coverage/coverage.opencover.xml
+        verbose: true
