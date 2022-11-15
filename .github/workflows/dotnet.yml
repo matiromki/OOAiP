@@ -1,7 +1,11 @@
 name: .NET
 
-on: [push]
-
+on:
+  push:
+    branches: [ "move", "rotate" ]
+  pull_request:
+    branches: [ "main" ]
+    
 jobs:
   build:
 
@@ -22,5 +26,5 @@ jobs:
       - name: Codecov
         uses: codecov/codecov-action@v3
         with:
-          token: a4744ab2-4036-4c19-8dac-336db8647807
+          files: ./coverage/coverage.opencover.xml
           verbose: true
