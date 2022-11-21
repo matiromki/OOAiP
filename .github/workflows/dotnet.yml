@@ -23,7 +23,11 @@ jobs:
         run: dotnet build ./SpaceBattle.Lib --configuration Release --no-restore
       - name: Test
         run: dotnet test --no-build --verbosity d -p:CollectCoverage=true -p:CoverletOutput=coverage/ -p:CoverletOutputFormat=opencover
+      - name: justls1
+        run: ls SpaceBattle.Lib.Test
+      - name: justls2
+        run: ls SpaceBattle.Lib.Test/coverage/
       - name: Codecov
         uses: codecov/codecov-action@v3
         with: 
-          files: SpaceBattle.Lib.Test/coverage/coverage.opencover.xml
+          files: SpaceBattle.Lib.Test/coverage/coverage.info
