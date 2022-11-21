@@ -27,8 +27,6 @@ jobs:
         run: ls SpaceBattle.Lib.Test
       - name: justls2
         run: ls 
-      - name: justls3
-        run: ls SpaceBattle.Lib
       - name: Codecov
         uses: codecov/codecov-action@v3
         with: 
