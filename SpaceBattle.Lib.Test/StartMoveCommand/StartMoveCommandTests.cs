@@ -24,7 +24,7 @@ public class StartMoveCommandTests
     }
 
     [Fact]
-    public void SuccessofStartCommandExecute()
+    public void StartMoveCommandPositiveTest()
     {
         var mcs = new Mock<IMoveCommandStartable>();
         mcs.SetupGet(c => c.uobject).Returns(new Mock<IUObject>().Object).Verifiable();
