@@ -1,6 +1,6 @@
 using Hwdtech;
 using Hwdtech.Ioc;
-using Moq;
+
 namespace SpaceBattle.Lib.Test;
 
 public class StopMoveCommandeTests
@@ -18,11 +18,11 @@ public class StopMoveCommandeTests
 
         var mockStrategyReturnCommand = new Mock<IStrategy>();
         mockStrategyReturnCommand.Setup(x => x.RunStrategy(It.IsAny<object[]>())).Returns(mockCommand.Object);
-        IoC.Resolve<Hwdtech.ICommand>("IoC.Register", "SpaceBattle.Commands.RemoveProperty", (object[] args) => mockStrategyReturnCommand.Object.RunStrategy(args)).Execute();
+        IoC.Resolve<Hwdtech.ICommand>("IoC.Register", "SpaceBattle.RemoveProperty", (object[] args) => mockStrategyReturnCommand.Object.RunStrategy(args)).Execute();
 
         var mockStrategyReturnIInjectable = new Mock<IStrategy>();
         mockStrategyReturnIInjectable.Setup(x => x.RunStrategy(It.IsAny<object[]>())).Returns(mockInjecting.Object);
-        IoC.Resolve<Hwdtech.ICommand>("IoC.Register", "SpaceBattle.SetupCommand", (object[] args) => mockStrategyReturnIInjectable.Object.RunStrategy(args)).Execute();
+        IoC.Resolve<Hwdtech.ICommand>("IoC.Register", "SpaceBattle.Commands.SetupCommand", (object[] args) => mockStrategyReturnIInjectable.Object.RunStrategy(args)).Execute();
 
         var mockStrategyReturnEmpty = new Mock<IStrategy>();
         mockStrategyReturnEmpty.Setup(x => x.RunStrategy()).Returns(mockCommand.Object);
@@ -66,16 +66,4 @@ public class StopMoveCommandeTests
         Assert.Throws<Exception>(() => smc.Execute());
     }
 
-    /*[Fact]
-    public void SuccesOfSetupCommandStrategy()
-    {
-        var obj = new Mock<IUObject>();
-        obj.Setup(o => o.getProperty("Velocity")).Returns(new Vector(1, 1));
-
-        var strategy =  new Mock<IStrategy>();
-        strategy.Setup(x => x.RunStrategy(It.IsAny<object[]>())).Returns(obj);
-
-        Assert.NotNull(strategy.RunStrategy(obj.Object, "Velocity"));
-    }
-    */
 }
