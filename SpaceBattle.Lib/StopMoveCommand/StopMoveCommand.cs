@@ -12,8 +12,8 @@ public class StopMoveCommande: ICommand
 
     public void Execute()
     {
-        obj.properties.ToList().ForEach(p => IoC.Resolve<ICommand>("SpaceBattle.Game.SetProperty", obj.uobject, p).Execute());
-        
+        obj.properties.ToList().ForEach(p => IoC.Resolve<ICommand>("SpaceBattle.SetProperty", obj.uobject, p).Execute());
+        IoC.Resolve<IInjectable>("SpaceBattle.Commands.SetupCommand", obj.uobject).Inject(IoC.Resolve<ICommand>("SpaceBattle.Commands.Empty"));
     }
 
 }
