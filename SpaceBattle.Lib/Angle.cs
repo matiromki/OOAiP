@@ -29,13 +29,13 @@ public class Angle
     }
 
     public static bool operator ==(Angle a1, Angle a2)
-    {   
+    {
         a1.numerator /= GCD(a1.numerator, a1.denominator);
         a1.denominator /= GCD(a1.numerator, a1.denominator);
 
         a2.numerator /= GCD(a2.numerator, a2.denominator);
         a2.denominator /= GCD(a2.numerator, a2.denominator);
-        
+
         return a1.Equals(a2);
     }
 
