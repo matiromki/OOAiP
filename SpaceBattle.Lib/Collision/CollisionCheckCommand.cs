@@ -4,23 +4,22 @@ namespace SpaceBattle.Lib;
 public class CollisionCheckCommand : ICommand
 {
     private IUObject obj1, obj2;
+
     public CollisionCheckCommand(IUObject first, IUObject second)
     {
         this.obj1 = first;
         this.obj2 = second;
     }
-    public void Execute()
-    {
-        var v = new List<Vector>();
-        foreach(string prop in new List<string> {"Position", "Velocity"})
-        {
-            var firstObj = IoC.Resolve<Vector>("SpaceBattle.GetProperty", obj1, prop);
-            var secondObj = IoC.Resolve<Vector>("SpaceBattle.GetProperty", obj2, prop);
-            v.Add(firstObj - secondObj);
-        }
 
-        bool checkCollision = IoC.Resolve<bool>("SpaceBattle.CheckCollision", v);
-        if (checkCollision) throw new Exception(); 
-        
+    public void Execute()
+    {   
+        var firstPos = IoC.Resolve<Vector>("SpaceBattle.GetProperty", "Position", obj1);
+        var secondPos = IoC.Resolve<Vector>("SpaceBattle.GetProperty", "Position", obj2);
+        var firstVel = IoC.Resolve<Vector>("SpaceBattle.GetProperty", "Velocity", obj1);
+        var secondVel = IoC.Resolve<Vector>("SpaceBattle.GetProperty", "Velocity", obj2);
+
+        bool checkCollision = IoC.Resolve<bool>("SpaceBattle.CheckCollision", firstPos - secondPos, firstVel - secondVel);
+
+        if (checkCollision) throw new Exception();
     }
 }
