@@ -4,8 +4,8 @@ using Hwdtech.Ioc;
 namespace SpaceBattle.Lib.Test;
 
 public class DecisionTreeTests
-{   
-    
+{
+
     public DecisionTreeTests()
     {
         new InitScopeBasedIoCImplementationCommand().Execute();
