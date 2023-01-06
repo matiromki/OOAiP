@@ -1,17 +1,17 @@
 namespace SpaceBattle.Lib;
 using Hwdtech;
 
-public class BuildTree : ICommand
+public class BuildDecisionTree : ICommand
 {
     private string path;
-    public BuildTree(string path)
+    public BuildDecisionTree(string path)
     {
         this.path = path;
     }
 
     public void Execute()
     {
-        var strategy = IoC.Resolve<Dictionary<int, object>>("SpaceBattle.GetSolutionTree");
+        var strategy = IoC.Resolve<Dictionary<int, object>>("SpaceBattle.GetDecisionTree");
         try
         {
             string? line;
@@ -41,7 +41,7 @@ public class BuildTree : ICommand
         foreach (var item in row)
         {
             tree.TryAdd(item, new Dictionary<int, object>());
-            tree = (Dictionary<int,object>) tree[item];
+            tree = (Dictionary<int, object>)tree[item];
         }
     }
 }
