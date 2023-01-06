@@ -49,6 +49,24 @@ public class VectorTest
     }
 
     [Fact]
+    public void PositiveOperationDifferenceVectorTest()
+    {
+        var v1 = new Vector(1, 2);
+        var v2 = new Vector(4, 5);
+
+        Assert.Equal(new Vector(-3, -3), v1 - v2);
+    }
+
+    [Fact]
+    public void NegativeOperationDifferenceVectorTest()
+    {
+        var v1 = new Vector(1, 2);
+        var v2 = new Vector(4, 5, 3);
+
+        Assert.Throws<ArgumentException>(() => v1 - v2);
+    }
+
+    [Fact]
     public void PositiveVectorEqualsTest()
     {
         var v1 = new Vector(1, 2);
