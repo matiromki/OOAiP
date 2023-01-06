@@ -5,7 +5,7 @@ using Moq;
 namespace SpaceBattle.Lib.Test;
 
 public class CollisionCheckTests
-{   
+{
     
     public CollisionCheckTests()
     {
@@ -15,7 +15,7 @@ public class CollisionCheckTests
         var getPropStrategy = new GetPropertyStrategy();
         IoC.Resolve<Hwdtech.ICommand>("IoC.Register", "SpaceBattle.GetProperty", (object[] args) => getPropStrategy.RunStrategy(args)).Execute();
 
-        
+
     }
 
     [Fact]
@@ -23,13 +23,13 @@ public class CollisionCheckTests
     {
         var obj1 = new Mock<IUObject>();
         var obj2 = new Mock<IUObject>();
-        
-        foreach (string prop in new List<string>() {"Position", "Velocity"})
+
+        foreach (string prop in new List<string>() { "Position", "Velocity" })
         {
-            obj1.Setup(x => x.getProperty(prop)).Returns(new Vector(It.IsAny<int>(),It.IsAny<int>()));
-            obj2.Setup(x => x.getProperty(prop)).Returns(new Vector(It.IsAny<int>(),It.IsAny<int>()));
+            obj1.Setup(x => x.getProperty(prop)).Returns(new Vector(It.IsAny<int>(), It.IsAny<int>()));
+            obj2.Setup(x => x.getProperty(prop)).Returns(new Vector(It.IsAny<int>(), It.IsAny<int>()));
         }
-        
+
         var CheckCollisionStrategy = new Mock<IStrategy>();
         IoC.Resolve<Hwdtech.ICommand>("IoC.Register", "SpaceBattle.CheckCollision", (object[] args) => CheckCollisionStrategy.Object.RunStrategy(args)).Execute();
         CheckCollisionStrategy.Setup(col => col.RunStrategy(It.IsAny<object[]>())).Returns(true).Verifiable();
@@ -45,13 +45,13 @@ public class CollisionCheckTests
     {
         var obj1 = new Mock<IUObject>();
         var obj2 = new Mock<IUObject>();
-        
-        foreach (string prop in new List<string>() {"Position", "Velocity"})
+
+        foreach (string prop in new List<string>() { "Position", "Velocity" })
         {
-            obj1.Setup(x => x.getProperty(prop)).Returns(new Vector(It.IsAny<int>(),It.IsAny<int>()));
-            obj2.Setup(x => x.getProperty(prop)).Returns(new Vector(It.IsAny<int>(),It.IsAny<int>()));
+            obj1.Setup(x => x.getProperty(prop)).Returns(new Vector(It.IsAny<int>(), It.IsAny<int>()));
+            obj2.Setup(x => x.getProperty(prop)).Returns(new Vector(It.IsAny<int>(), It.IsAny<int>()));
         }
-        
+
         var CheckCollisionStrategy = new Mock<IStrategy>();
         IoC.Resolve<Hwdtech.ICommand>("IoC.Register", "SpaceBattle.CheckCollision", (object[] args) => CheckCollisionStrategy.Object.RunStrategy(args)).Execute();
         CheckCollisionStrategy.Setup(col => col.RunStrategy(It.IsAny<object[]>())).Returns(false).Verifiable();

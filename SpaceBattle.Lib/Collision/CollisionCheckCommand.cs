@@ -12,7 +12,7 @@ public class CollisionCheckCommand : ICommand
     }
 
     public void Execute()
-    {   
+    {
         var firstPos = IoC.Resolve<Vector>("SpaceBattle.GetProperty", "Position", obj1);
         var secondPos = IoC.Resolve<Vector>("SpaceBattle.GetProperty", "Position", obj2);
         var firstVel = IoC.Resolve<Vector>("SpaceBattle.GetProperty", "Velocity", obj1);

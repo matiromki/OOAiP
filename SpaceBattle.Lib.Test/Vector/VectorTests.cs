@@ -36,6 +36,7 @@ public class VectorTest
 
         Assert.Equal(new Vector(5, 7), v1 + v2);
     }
+
     [Fact]
     public void NegativeOperationAddVectorTest()
     {
@@ -46,7 +47,7 @@ public class VectorTest
 
         Assert.Throws<ArgumentException>(action);
     }
-    
+
     [Fact]
     public void PositiveOperationDifferenceVectorTest()
     {
@@ -64,7 +65,6 @@ public class VectorTest
 
         Assert.Throws<ArgumentException>(() => v1 - v2);
     }
-
 
     [Fact]
     public void PositiveVectorEqualsTest()
