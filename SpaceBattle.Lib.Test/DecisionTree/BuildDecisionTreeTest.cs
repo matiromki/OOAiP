@@ -14,6 +14,21 @@ public class DecisionTreeTests
     }
 
     [Fact]
+    public void PositiveBuildDecisionTreeTest()
+    {
+        string path = "../../../Tree.txt";
+        var getDecisionTreeStrategy = new Mock<IStrategy>();
+        IoC.Resolve<Hwdtech.ICommand>("IoC.Register", "SpaceBattle.GetDecisionTree", (object[] args) => getDecisionTreeStrategy.Object.RunStrategy(args)).Execute();
+        getDecisionTreeStrategy.Setup(t => t.RunStrategy(It.IsAny<object[]>())).Returns(new Dictionary<int, object>()).Verifiable();
+
+        var bdt = new BuildDecisionTree(path);
+
+        bdt.Execute();
+
+        getDecisionTreeStrategy.Verify();
+    }
+
+    [Fact]
     public void NegativeBuildDecisionTreeTestThrowsException()
     {
         string path = "";
