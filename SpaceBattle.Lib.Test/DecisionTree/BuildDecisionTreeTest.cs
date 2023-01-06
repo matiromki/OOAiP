@@ -11,17 +11,35 @@ public class DecisionTreeTests
     {
         new InitScopeBasedIoCImplementationCommand().Execute();
         IoC.Resolve<Hwdtech.ICommand>("Scopes.Current.Set", IoC.Resolve<object>("Scopes.New", IoC.Resolve<object>("Scopes.Root"))).Execute();
-
-        var getDecisionTree = new Mock<IStrategy>();
-        IoC.Resolve<Hwdtech.ICommand>("IoC.Register", "SpaceBattle.GetDecisionTree", (object[] args) => getDecisionTree.Object.RunStrategy(args)).Execute();
-        
     }
 
     [Fact]
-    public void PositiveBuildDecisionTreeTest()
+    public void NegativeBuildDecisionTreeTestThrowsException()
     {
         string path = "";
-        ICommand bdt = new BuildDecisionTree(path);
-        bdt.Execute();
+        var getDecisionTreeStrategy = new Mock<IStrategy>();
+        IoC.Resolve<Hwdtech.ICommand>("IoC.Register", "SpaceBattle.GetDecisionTree", (object[] args) => getDecisionTreeStrategy.Object.RunStrategy(args)).Execute();
+        getDecisionTreeStrategy.Setup(t => t.RunStrategy(It.IsAny<object[]>())).Returns(new Dictionary<int, object>()).Verifiable();
+
+        var bdt = new BuildDecisionTree(path);
+
+        Assert.Throws<Exception>(() => bdt.Execute());
+
+        getDecisionTreeStrategy.Verify();
+    }
+
+    [Fact]
+    public void NegativeBuildDecisionTreeTestThrowsFileNotFoundException()
+    {
+        string path = "./MyFile.txt";
+        var getDecisionTreeStrategy = new Mock<IStrategy>();
+        IoC.Resolve<Hwdtech.ICommand>("IoC.Register", "SpaceBattle.GetDecisionTree", (object[] args) => getDecisionTreeStrategy.Object.RunStrategy(args)).Execute();
+        getDecisionTreeStrategy.Setup(t => t.RunStrategy(It.IsAny<object[]>())).Returns(new Dictionary<int, object>()).Verifiable();
+
+        var bdt = new BuildDecisionTree(path);
+
+        Assert.Throws<FileNotFoundException>(() => bdt.Execute());
+
+        getDecisionTreeStrategy.Verify();
     }
 }
