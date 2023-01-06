@@ -14,9 +14,9 @@ public class BuildDecisionTree : ICommand
         var strategy = IoC.Resolve<Dictionary<int, object>>("SpaceBattle.GetDecisionTree");
         try
         {
-            string? line;
-            using (var reader = File.OpenText(path))
+            using (StreamReader reader = File.OpenText(path))
             {
+                string? line;
                 while ((line = reader.ReadLine()) != null)
                 {
                     var record = line.Split().Select(int.Parse).ToList();
@@ -35,10 +35,10 @@ public class BuildDecisionTree : ICommand
 
     }
 
-    private void PutInTree(List<int> row, IDictionary<int, object> root)
+    private void PutInTree(List<int> list, IDictionary<int, object> root)
     {
         var tree = root;
-        foreach (var item in row)
+        foreach (var item in list)
         {
             tree.TryAdd(item, new Dictionary<int, object>());
             tree = (Dictionary<int, object>)tree[item];
