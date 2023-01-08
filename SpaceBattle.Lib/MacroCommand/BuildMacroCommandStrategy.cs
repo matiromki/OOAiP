@@ -9,7 +9,7 @@ public class BuildMacroCommandStrategy : IStrategy
         string key = (string)args[0];
         IUObject obj = (IUObject)args[1];
 
-        IList<string> dependencies = IoC.Resolve<List<string>>("SpaceBattle.Operation." +key);
+        var dependencies = IoC.Resolve<IList<string>>("SpaceBattle.Operation." +key);
 
         var listofCmds = new List<ICommand>();
         foreach (string dep in dependencies)
