@@ -19,7 +19,7 @@ public class RepeatableCommandTests
 
         var getMacroCommandStrategy = new Mock<IStrategy>();
         IoC.Resolve<Hwdtech.ICommand>("IoC.Register", "SpaceBattle.Operation.MacroCommand", (object[] args) => getMacroCommandStrategy.Object.RunStrategy(args)).Execute();
-        getMacroCommandStrategy.Setup(s => s.RunStrategy(It.IsAny<string>(), new Mock<IUObject>())).Returns(macroc.Object);
+        getMacroCommandStrategy.Setup(s => s.RunStrategy(It.IsAny<string>(), new Mock<IUObject>().Object)).Returns(macroc.Object);
 
 
         var InjCommand = new InjectableCommand(macroc.Object);
@@ -31,6 +31,11 @@ public class RepeatableCommandTests
         var RepCommand = new RepeatableCommand(InjCommand);
         var getRepeatableStrategy = new Mock<IStrategy>();
         IoC.Resolve<Hwdtech.ICommand>("IoC.Register", "SpaceBattle.Operation.Repeat", (object[] args) => getRepeatableStrategy.Object.RunStrategy(args)).Execute();
-        getMacroCommandStrategy.Setup(s => s.RunStrategy(It.IsAny<object[]>())).Returns(new CreateReapeatableStrategy());
+        getMacroCommandStrategy.Setup(s => s.RunStrategy(It.IsAny<object[]>())).Returns((object)RepCommand).Verifiable();
+
+        var CreateRS = new CreateReapeatableStrategy();
+        CreateRS.RunStrategy(new object[] { It.IsAny<string>(), new Mock<IUObject>().Object});
+
+        getMacroCommandStrategy.Verify();
     }
 }
