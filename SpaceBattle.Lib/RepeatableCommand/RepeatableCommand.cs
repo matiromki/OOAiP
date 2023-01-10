@@ -5,12 +5,13 @@ public class RepeatableCommand : ICommand
 {
     private ICommand cmd;
 
-    public class RepeatableCommand(ICommand cmd)
+    public RepeatableCommand(ICommand cmd)
     {
         this.cmd = cmd;
     }
     public void Execute()
     {
-
+        this.cmd.Execute();
+        IoC.Resolve<ICommand>("SpaceBattle.Queue.Push", this.MemberwiseClone()).Execute();
     }
 }
