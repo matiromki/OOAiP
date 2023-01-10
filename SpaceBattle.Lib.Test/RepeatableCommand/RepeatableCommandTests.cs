@@ -33,6 +33,7 @@ public class RepeatableCommandTests
         IoC.Resolve<Hwdtech.ICommand>("IoC.Register", "SpaceBattle.Operation.Repeat", (object[] args) => getRepeatableStrategy.Object.RunStrategy(args)).Execute();
         getMacroCommandStrategy.Setup(s => s.RunStrategy(It.IsAny<object[]>())).Returns((object)RepCommand).Verifiable();
 
+
         var CreateRS = new CreateReapeatableStrategy();
         CreateRS.RunStrategy(new object[] { It.IsAny<string>(), new Mock<IUObject>().Object});
 
