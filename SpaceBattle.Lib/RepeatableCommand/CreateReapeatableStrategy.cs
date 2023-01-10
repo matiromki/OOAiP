@@ -10,7 +10,7 @@ public class CreateReapeatableStrategy: IStrategy
 
         var macro = IoC.Resolve<ICommand>("SpaceBattle.Operation.Macro", dependenceName, obj);
         var inj = IoC.Resolve<ICommand>("SpaceBattle.Operation.Inject", macro);
-        var cmd = IoC.Resolve<ICommand>("SpaceBattle.Operation.Repeat");
+        var cmd = IoC.Resolve<ICommand>("SpaceBattle.Operation.Repeat", inj);
 
         return cmd;
     }
