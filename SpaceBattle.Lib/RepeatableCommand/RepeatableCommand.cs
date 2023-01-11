@@ -12,6 +12,6 @@ public class RepeatableCommand : ICommand
     public void Execute()
     {
         this.cmd.Execute();
-        IoC.Resolve<ICommand>("SpaceBattle.Queue.Push", this.MemberwiseClone()).Execute();
+        IoC.Resolve<ICommand>("SpaceBattle.Queue.Push", this).Execute();
     }
 }
