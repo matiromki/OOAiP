@@ -11,8 +11,8 @@ public class InjectableCommand : ICommand , IInjectable
     {
         this.cmd.Execute();
     }
-    public void Inject(ICommand obj)
+    public void Inject(ICommand com)
     {
-        this.cmd = obj;
+        this.cmd = com;
     }
 }

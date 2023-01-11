@@ -17,26 +17,35 @@ public class RepeatableCommandTests
         var macroc = new Mock<ICommand>();
         macroc.Setup(c => c.Execute());
 
+
         var getMacroCommandStrategy = new Mock<IStrategy>();
         IoC.Resolve<Hwdtech.ICommand>("IoC.Register", "SpaceBattle.Operation.MacroCommand", (object[] args) => getMacroCommandStrategy.Object.RunStrategy(args)).Execute();
-        getMacroCommandStrategy.Setup(s => s.RunStrategy(It.IsAny<string>(), new Mock<IUObject>().Object)).Returns(macroc.Object);
+        getMacroCommandStrategy.Setup(s => s.RunStrategy(It.IsAny<object[]>())).Returns(macroc.Object).Verifiable();
 
 
-        var InjCommand = new InjectableCommand(macroc.Object);
+        InjectableCommand InjCommand = new InjectableCommand(macroc.Object);
         var getInjectableStrategy = new Mock<IStrategy>();
         IoC.Resolve<Hwdtech.ICommand>("IoC.Register", "SpaceBattle.Operation.Inject", (object[] args) => getInjectableStrategy.Object.RunStrategy(args)).Execute();
-        getMacroCommandStrategy.Setup(s => s.RunStrategy(It.IsAny<object[]>())).Returns(InjCommand);
+        getInjectableStrategy.Setup(s => s.RunStrategy(It.IsAny<object[]>())).Returns(InjCommand).Verifiable();
 
 
-        var RepCommand = new RepeatableCommand(InjCommand);
+        RepeatableCommand RepCommand = new RepeatableCommand(InjCommand);
         var getRepeatableStrategy = new Mock<IStrategy>();
         IoC.Resolve<Hwdtech.ICommand>("IoC.Register", "SpaceBattle.Operation.Repeat", (object[] args) => getRepeatableStrategy.Object.RunStrategy(args)).Execute();
-        getMacroCommandStrategy.Setup(s => s.RunStrategy(It.IsAny<object[]>())).Returns((object)RepCommand).Verifiable();
-
+        getRepeatableStrategy.Setup(s => s.RunStrategy(It.IsAny<object[]>())).Returns(RepCommand).Verifiable();
+        
+        var QueuePushStrategy = new Mock<IStrategy>();
+        IoC.Resolve<Hwdtech.ICommand>("IoC.Register", "SpaceBattle.Queue.Push", (object[] args) => QueuePushStrategy.Object.RunStrategy(args)).Execute();
+        //QueuePushStrategy.Setup(s => s.RunStrategy(It.IsAny<Object>())).Returns(It.IsAny<ICommand>());
 
         var CreateRS = new CreateReapeatableStrategy();
         CreateRS.RunStrategy(new object[] { It.IsAny<string>(), new Mock<IUObject>().Object});
 
+        InjCommand.Execute();
+        RepCommand.Execute();
+
         getMacroCommandStrategy.Verify();
+        getInjectableStrategy.Verify();
+        getRepeatableStrategy.Verify();
     }
 }

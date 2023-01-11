@@ -3,7 +3,7 @@ using Hwdtech;
 
 public class RepeatableCommand : ICommand
 {
-    private ICommand cmd;
+    ICommand cmd;
 
     public RepeatableCommand(ICommand cmd)
     {
