@@ -1,6 +1,6 @@
 namespace SpaceBattle.Lib;
 
-public class InjectableCommand : ICommand , IInjectable
+public class InjectableCommand : ICommand, IInjectable
 {
     ICommand cmd;
     public InjectableCommand(ICommand cmd)
